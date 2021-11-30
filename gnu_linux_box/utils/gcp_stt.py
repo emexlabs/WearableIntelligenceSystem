@@ -79,6 +79,7 @@ def vad_filter(content):
         return content
 
 def try_transcribe(content):
+    #print("content", content)
     return speech.StreamingRecognizeRequest(audio_content=content)
 
 def get_current_time():
@@ -153,6 +154,7 @@ def new_chunk_time_update():
     last_chunk_time = time.time()
 
 def new_chunk(queue, data):
+    #print("data", data)
     new_chunk_time_update()
     queue.put(data)
 
@@ -259,7 +261,7 @@ def run_google_stt(transcript_q, audio_stream_observable, language_code="en-US")
         try:
             receive_transcriptions(responses, transcript_q)
         except Exception as e:
-#            print(e)
-#            tb = traceback.format_exc()
-#            print(tb)
+            print(e)
+            tb = traceback.format_exc()
+            print(tb)
             print('Google STT API error, opening new streaming connection to Google Speech to Text API')

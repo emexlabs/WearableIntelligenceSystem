@@ -55,7 +55,7 @@ public class AudioService extends Service {
     public static final String CHANNEL_ID = "AudioServiceChannel";
 
     //socket info
-    static String SERVER_IP = "18.191.190.218";
+    static String SERVER_IP = "192.168.1.185";
     static int SERVER_PORT = 4449;
     private static int mConnectState = 0;
 
