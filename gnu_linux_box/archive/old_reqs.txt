@@ -31,3 +31,12 @@ playsound
 vext
 fuzzysearch
 webrtcvad
+termcolor
+pyaudio
+google-api-python-client
+google-cloud-speech
+tts
+playsound
+vext
+fuzzysearch
+webrtcvad

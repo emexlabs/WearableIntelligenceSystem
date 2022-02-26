@@ -9,3 +9,8 @@ Pillow >= 9.0.0
 gunicorn
 gevent
 google-cloud-translate
+requests
+selenium==3.141
+beautifulsoup4
+numpy>=1.21
+pandas
