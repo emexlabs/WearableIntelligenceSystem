@@ -14,6 +14,10 @@ android {
     buildToolsVersion "30.0.3"
     useLibrary 'org.apache.http.legacy'
 
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
     defaultConfig {
         applicationId "com.wearableintelligencesystem.androidsmartglasses"
         minSdkVersion 22
