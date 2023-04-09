@@ -88,10 +88,19 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         if (intent != null) {
+
             String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+
+            //True when service is started from SGM
+            if(action == INTENT_ACTION && extras != null){
+                action = (String) extras.get(TPA_ACTION);
+            }
+
             switch (action) {
                 case ACTION_START_FOREGROUND_SERVICE:
                     // start the service in the foreground
+                    Log.d("TEST", "starting foreground");
                     startForeground(myNotificationId, updateNotification());
                     break;
                 case ACTION_STOP_FOREGROUND_SERVICE:
@@ -102,7 +111,6 @@ public abstract class SmartGlassesAndroidService extends LifecycleService {
         }
         return Service.START_STICKY;
     }
-
     @Subscribe
     public void onKillTpaEvent(KillTpaEvent receivedEvent){
         //if(receivedEvent.uuid == this.appUUID) //TODO: Figure out implementation here...
