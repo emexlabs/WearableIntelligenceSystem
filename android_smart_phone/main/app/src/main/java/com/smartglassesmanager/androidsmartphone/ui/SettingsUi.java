@@ -97,9 +97,9 @@ public class SettingsUi extends Fragment {
         sendTestCardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                sendTestCard();
+                //sendTestCard();
 
-                /*
+
                 //String tpaPackageName = "com.teamopensmartglasses.translate";
                 //String tpaServiceName = ".TranslationService";
                 String tpaPackageName = "com.teamopensmartglasses.searchengine";
@@ -110,7 +110,7 @@ public class SettingsUi extends Fragment {
 
                 i.setComponent(new ComponentName(tpaPackageName, tpaPackageName+tpaServiceName));
                 ComponentName c = ((MainActivity)getActivity()).startForegroundService(i);
-                */
+
             }
         });
 
