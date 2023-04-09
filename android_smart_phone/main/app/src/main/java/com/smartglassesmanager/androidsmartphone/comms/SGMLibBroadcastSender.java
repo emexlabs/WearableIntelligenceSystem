@@ -51,14 +51,12 @@ public class SGMLibBroadcastSender {
 
     //Starts a SGMCommand's service (if not already running)
     public void startSgmCommandService(SGMCommand sgmCommand){
-        //tpaPackageName = "com.google.mlkit.samples.nl.translate";
-        //tpaServiceName = ".java.TranslationService";
         Log.d(TAG, "Starting command service: " + sgmCommand.packageName);
 
         if(sgmCommand.getPackageName() == "" || sgmCommand.getServiceName() == "") return;
 
         Intent i = new Intent();
-        i.setAction("SGM_COMMAND_INTENT");
+        i.setAction(SmartGlassesAndroidService.INTENT_ACTION);
         i.putExtra(SmartGlassesAndroidService.TPA_ACTION, SmartGlassesAndroidService.ACTION_START_FOREGROUND_SERVICE);
         i.setComponent(new ComponentName(sgmCommand.packageName, sgmCommand.serviceName));
         ComponentName c = context.startForegroundService(i);
