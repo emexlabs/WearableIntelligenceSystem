@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "com.wearableintelligencesystem.androidsmartglasses"
-        minSdkVersion 22
+        minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
