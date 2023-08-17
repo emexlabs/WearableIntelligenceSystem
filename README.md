@@ -1,5 +1,5 @@
 # Wearable Intelligence System
-
+### ARCHIVED. The WIS has been been reorganized and upgraded to be faster, cleaner, and support more smart glasses as the SmartGlassesManager: **https://github.com/TeamOpenSmartGlasses/SmartGlassesManager/**
 The Wearable Intelligence System (WIS) is the homepage for your smart glasses with a host of built-in apps, voice controls, always available HUD information, app launcher, and more. The WIS makes building smart glasses applications easy. There's a number of powerful and fashionable smart glasses being released (2022-24), and the WIS gives you an interface and apps to make those glasses useful. The WIS is like your phone homescreen or your computer desktop combined with a smart assistant.
 
 ## Beta Version Video
