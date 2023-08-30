@@ -88,29 +88,7 @@ public class NetworkUtils {
 
     public static boolean isHotspotOn(Context context){
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        Method[] wmMethods = wifi.getClass().getDeclaredMethods();
-        for (Method method: wmMethods) {
-            if (method.getName().equals("isWifiApEnabled")) {
-
-                try {
-                    if ((Boolean) method.invoke(wifi)) {
-//                        isInetConnOn = true;
-//                        iNetMode = 2;
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }
-        return false;
+        return wifi.isWifiEnabled();
     }
 
     public static InetAddress getIpAddress() {

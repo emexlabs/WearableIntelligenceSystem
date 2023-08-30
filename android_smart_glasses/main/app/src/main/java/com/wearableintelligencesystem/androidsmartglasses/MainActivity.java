@@ -226,8 +226,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //wifiConnected = WifiUtils.checkWifiOnAndConnected(this); //check wifi status - don't need now that we have listener in service
-        Drawable wifiOnDrawable = this.getDrawable(R.drawable.ic_wifi_on);
-        Drawable wifiOffDrawable = this.getDrawable(R.drawable.ic_wifi_off);
+        Drawable wifiOnDrawable = this.getDrawableForAnyAPI(R.drawable.ic_wifi_on);
+        Drawable wifiOffDrawable = this.getDrawableForAnyAPI(R.drawable.ic_wifi_off);
+
         if (wifiConnected) {
             mWifiStatusImageView.setImageDrawable(wifiOnDrawable);
         } else {
@@ -240,8 +241,8 @@ public class MainActivity extends AppCompatActivity {
         if (mPhoneStatusImageView == null){
             return;
         }
-        Drawable phoneOnDrawable = this.getDrawable(R.drawable.ic_phone_connected);
-        Drawable phoneOffDrawable = this.getDrawable(R.drawable.ic_phone_disconnected);
+        Drawable phoneOnDrawable = this.getDrawableForAnyAPI(R.drawable.ic_phone_connected);
+        Drawable phoneOffDrawable = this.getDrawableForAnyAPI(R.drawable.ic_phone_disconnected);
         if (phoneConnected) {
             mPhoneStatusImageView.setImageDrawable(phoneOnDrawable);
         } else {
@@ -255,10 +256,10 @@ public class MainActivity extends AppCompatActivity {
         if (mBatteryStatusImageView == null){
             return;
         }
-        Drawable batteryFullDrawable = this.getDrawable(R.drawable.ic_full_battery);
-        Drawable batteryFullChargingDrawable = this.getDrawable(R.drawable.ic_full_battery_charging);
-        Drawable batteryLowDrawable = this.getDrawable(R.drawable.ic_low_battery);
-        Drawable batteryLowChargingDrawable = this.getDrawable(R.drawable.ic_low_battery_charging);
+        Drawable batteryFullDrawable = this.getDrawableForAnyAPI(R.drawable.ic_full_battery);
+        Drawable batteryFullChargingDrawable = this.getDrawableForAnyAPI(R.drawable.ic_full_battery_charging);
+        Drawable batteryLowDrawable = this.getDrawableForAnyAPI(R.drawable.ic_low_battery);
+        Drawable batteryLowChargingDrawable = this.getDrawableForAnyAPI(R.drawable.ic_low_battery_charging);
         if (batteryFull) {
             if (batteryCharging) {
                 mBatteryStatusImageView.setImageDrawable(batteryFullChargingDrawable);
@@ -363,6 +364,14 @@ public class MainActivity extends AppCompatActivity {
 //                setupLlcUi();
 //            }
 //        }, show_time);
+    }
+
+    private Drawable getDrawableForAnyAPI(int id) {
+        if(android.os.Build.VERSION.SDK_INT >= 21) {
+            return this.getDrawable(id);
+        } else {
+            return this.getResources().getDrawable(id);
+        }
     }
 
     //generic way to set the current enumerated list of strings and display them, scrollably, on the main UI

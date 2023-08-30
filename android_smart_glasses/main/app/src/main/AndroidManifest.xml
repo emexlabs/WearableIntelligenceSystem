@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
 
     <application
         android:allowBackup="true"
@@ -25,17 +25,24 @@
         android:roundIcon="@mipmap/wis_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.WearableAiDisplayMoverio">
-        <activity android:name="com.wearableintelligencesystem.androidsmartglasses.MainActivity">
+        <activity
+            android:name="com.wearableintelligencesystem.androidsmartglasses.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_trigger_start" />
         </activity>
+
         <service
             android:name="com.wearableintelligencesystem.androidsmartglasses.WearableAiService"
-            android:label="CameraService" >
-        </service>
+            android:label="CameraService" />
         <service android:name="com.wearableintelligencesystem.androidsmartglasses.sensors.MuseService" android:enabled="true"/>
 
         <service android:name="com.wearableintelligencesystem.androidsmartglasses.archive.AudioService" android:enabled="true" android:exported="true"></service>
